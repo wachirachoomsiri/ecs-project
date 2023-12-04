@@ -36,13 +36,9 @@
 export default {
     data() {
         return {
-            // login: {
-            //     email: null,
-            //     password: null,
-            // }
             login: {
-                "email": "wachirachoomsiri@gmail.com",
-                "password": "Wachira@0989193177"
+                email: null,
+                password: null,
             }
         }
     },

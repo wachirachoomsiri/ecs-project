@@ -51,19 +51,14 @@
 </template>
 <script>
 export default {
+    auth: 'guest',
     data() {
         return {
-            // register: {
-            //     email: null,
-            //     phone_number: null,
-            //     password: null,
-            //     confirm_password: null
-            // },
             register: {
-                "email": "wachirachoomsiri@gmail.com",
-                "phone_number": "0989193177",
-                "password": "Wachira@0989193177",
-                "confirm_password": "Wachira@0989193177"
+                email: null,
+                phone_number: null,
+                password: null,
+                confirm_password: null
             },
             password_miss_match: false
         }
