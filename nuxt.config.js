@@ -7,9 +7,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'esc-project',
-    htmlAttrs: {
-      lang: 'th'
-    },
+    // htmlAttrs: {
+    //   lang: 'th-TH'
+    // },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -61,7 +61,9 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
 
-    'nuxt-socket-io'
+    'nuxt-socket-io',
+
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -82,14 +84,32 @@ export default {
   buefy: {
     materialDesignIcons: false,
     css: false,
+    defaultLocale: 'th-TH'
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'th'
+      lang: 'th-TH'
     }
   },
 
+  auth: {
+    redirect: {
+      login: '/auth/login',
+      logout: '/auth/login',
+      callback: '/auth/login',
+      home: '/store'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/user', method: 'get' }
+        }
+      }
+    }
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
@@ -102,5 +122,9 @@ export default {
     },
   },
 
-  generate: { fallback: true }
+  generate: { fallback: true },
+
+  router: {
+    middleware: ['auth']
+  }
 }
