@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <section>
     <br>
-    <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn;">นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
+    <div>
+      <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn;">ทดสอบ นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
+      <br>
+      <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn70yr;">ทดสอบ นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
+    </div>
     <br>
-    <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn70yr;">นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
     <br>
-    <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn;">{{ this.data }}</h1>
-  </div>
+    <NuxtLink class="text-5xl" to="/auth/login" style="font-family: Silpakorn;">เข้าสู่ระบบ</NuxtLink> <font class="text-5xl">|</font> <NuxtLink class="text-5xl" to="/auth/register" style="font-family: Silpakorn;">ลงทะเบียน</NuxtLink>
+  </section>
 </template>
 
 <script>
