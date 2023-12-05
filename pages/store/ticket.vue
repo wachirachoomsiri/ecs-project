@@ -7,7 +7,7 @@
                     <a v-for="i of row?.slice(0, 4)" @click="event_tk" :ref="`b_${i.id}`"
                         :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow hover:ring`">
                         <span :id="i.id"
-                            class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold">
+                            class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold select-none">
                             {{ i.id + 1 }}
                         </span>
                     </a>
@@ -16,7 +16,7 @@
                     <a v-for="i of row?.slice(4, row.length + 1)" @click="event_tk" :ref="`b_${i.id}`"
                         :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow hover:ring`">
                         <span :id="i.id"
-                            class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold">
+                            class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold select-none">
                             {{ i.id + 1 }}
                         </span>
                     </a>
