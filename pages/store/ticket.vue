@@ -4,20 +4,20 @@
         <div class="flex flex-col items-center mx-auto h-screen">
             <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-6 rounded-md shadow-2xl">
                 <div class="grid grid-cols-4 auto-cols-max gap-4 sm:gap-6">
-                    <a v-for="i of row?.slice(0, 4)" @click="event_tk" :ref="`b_${i.id}`"
+                    <a v-for="i of this.row?.slice(0, 4)" @click="event_tk" :ref="`b_${i.id}`"
                         :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow hover:ring`">
                         <span :id="i.id"
                             class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold select-none">
-                            {{ i.id + 1 }}
+                            {{  i.ismy ? "❌" : `${i.id + 1}` }}
                         </span>
                     </a>
                 </div>
                 <div class="grid grid-cols-8 gap-4 sm:gap-6 pt-4">
-                    <a v-for="i of row?.slice(4, row.length + 1)" @click="event_tk" :ref="`b_${i.id}`"
+                    <a v-for="i of this.row?.slice(4, this.row.length + 1)" @click="event_tk" :ref="`b_${i.id}`"
                         :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow hover:ring`">
                         <span :id="i.id"
                             class="flex flex-col items-center justify-center mx-auto h-full text-black font-bold select-none">
-                            {{ i.id + 1 }}
+                            {{  i.ismy ? "❌" : `${i.id + 1}` }}
                         </span>
                     </a>
                 </div>
@@ -92,11 +92,20 @@ export default {
         })
 
         this.socket.on('table_list', (msg) => {
-            this.row = msg.data;
+            let maped = msg.data.map((d)=>{
+                return {...d, ismy: (d.claim == this.$auth.user)}
+            })
+            this.row = maped;
         });
 
         this.socket.on('table_update', (msg) => {
-            this.row[msg.id].status = msg.status;
+            this.row[msg.id]['status'] = msg.status;
+            if (msg.claim == this.$auth.user) {
+                this.row[msg.id]['ismy'] = true;
+            } else {
+                this.row[msg.id]['ismy'] = false;
+            }
+            // console.log(this.row[msg.id]['ismy'])
         });
 
         this.socket.on("connect", () => {
@@ -169,7 +178,7 @@ export default {
                 return
             }
         },
-        clear_loading(){
+        clear_loading() {
             setTimeout(() => {
                 try {
                     this.loading_screen.close();
