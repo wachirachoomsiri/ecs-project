@@ -1,16 +1,29 @@
 <template>
-  <section>
-    <br>
-    <div>
-      <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn;">ทดสอบ นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
-      <br>
-      <h1 class="text-5xl text-gray-500" style="font-family: Silpakorn70yr;">ทดสอบ นายไม่อ่านหนังสือ นายจะรู้อะไร</h1>
+  <section class="flex items-center justify-center h-screen">
+    <!-- <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0"> -->
+    <!-- <div class="box-border bg-white h-auto w-96 p-4 rounded-md shadow-2xl"> -->
+    <div class="text-center">
+      <img src="/gear.svg" alt="image" class="mx-auto mb-4 w-32 h-32">
+      <h1 class="text-5xl text-gray-500 font-silpakorn mb-8">EE XVII HOMECOMING</h1>
+
+      <div>
+        <NuxtLink to="/auth/login" class="text-5xl font-silpakorn mb-4">เข้าสู่ระบบ</NuxtLink>
+        <span class="text-5xl text-gray-500">|</span>
+        <NuxtLink to="/auth/register" class="text-5xl font-silpakorn mb-4">ลงทะเบียน</NuxtLink>
+      </div>
     </div>
-    <br>
-    <br>
-    <NuxtLink class="text-5xl" to="/auth/login" style="font-family: Silpakorn;">เข้าสู่ระบบ</NuxtLink> <font class="text-5xl">|</font> <NuxtLink class="text-5xl" to="/auth/register" style="font-family: Silpakorn;">ลงทะเบียน</NuxtLink>
+    <!-- </div> -->
+    <!-- </div> -->
   </section>
 </template>
+
+<style scoped>
+/* เพิ่ม font-family สำหรับ Silpakorn */
+.font-silpakorn {
+  font-family: 'Silpakorn', sans-serif;
+}
+</style>
+
 
 <script>
 // import Card from '~/components/Card'
