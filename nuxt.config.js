@@ -90,7 +90,8 @@ export default {
   pwa: {
     manifest: {
       lang: 'th-TH'
-    }
+    },
+    icon: false
   },
 
   auth: {
