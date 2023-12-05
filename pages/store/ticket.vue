@@ -159,23 +159,26 @@ export default {
             let b_data = this.row[el.target.id];
             if (b_data.status == 0) {
                 this.loading_screen = this.$buefy.loading.open({ container: null });
-                this.socket.emit("table_click", { id: b_data._id })
-                setTimeout(() => {
-                    try {
-                        this.loading_screen.close();
-                    } catch (error) { }
-                }, 10000);
+                this.socket.emit("table_click", { id: b_data._id });
+                this.clear_loading();
+            } else if (b_data.status == 1) {
+                this.loading_screen = this.$buefy.loading.open({ container: null });
+                this.socket.emit("table_unclick", { id: b_data._id });
+                this.clear_loading();
+            } else {
+                return
             }
         },
-        // set_by_id() {
-        //     // let id = 0;
-        //     // let classList = this.$refs[`b_${id}`][0].classList;
-        //     // this.remove_list_class(classList, ['bg-orange-500', 'hover:bg-orange-600', 'cursor-pointer']);
-        //     // this.add_list_class(classList, ['bg-gray-500', 'hover:bg-gray-600', 'cursor-not-allowed']);
-        // },
+        clear_loading(){
+            setTimeout(() => {
+                try {
+                    this.loading_screen.close();
+                } catch (error) { }
+            }, 10000);
+        },
         get_table_list() {
             // this.socket.emit("table_list")
-            console.log()
+            // console.log()
         }
     }
 }
