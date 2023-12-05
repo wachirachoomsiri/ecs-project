@@ -19,3 +19,7 @@ body {
   opacity: 0;
   filter: blur(1rem);
 }
+
+.font-silpakorn {
+  font-family: 'Silpakorn', sans-serif;
+}

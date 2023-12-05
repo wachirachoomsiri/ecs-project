@@ -17,12 +17,12 @@
   </section>
 </template>
 
-<style scoped>
+<!-- <style scoped>
 /* เพิ่ม font-family สำหรับ Silpakorn */
 .font-silpakorn {
   font-family: 'Silpakorn', sans-serif;
 }
-</style>
+</style> -->
 
 
 <script>
