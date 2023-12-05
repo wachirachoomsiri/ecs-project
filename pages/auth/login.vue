@@ -6,14 +6,14 @@
                     <b-icon icon="account-arrow-right" size="is-small">
                     </b-icon> เข้าสู่ระบบ
                 </h1>
-                <form @submit.prevent="login_func">
+                <form name="login" @submit.prevent="login_func" autocomplete="on">
                     <b-field>
-                        <b-input v-model="login.email" placeholder="อีเมล" type="email" icon="email" autocomplete="email" required>
+                        <b-input v-model="login.email" placeholder="อีเมล" type="email" icon="email" name="email" autocomplete="username" required>
                         </b-input>
                     </b-field>
 
                     <b-field>
-                        <b-input v-model="login.password" placeholder="รหัสผ่าน" icon="key" type="password" minlength="8"
+                        <b-input v-model="login.password" placeholder="รหัสผ่าน" icon="key" type="password" name="current-password" autocomplete="current-password" minlength="8"
                             maxlength="32" password-reveal :has-counter="false" required>
                         </b-input>
                     </b-field>

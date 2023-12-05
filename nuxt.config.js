@@ -76,7 +76,7 @@ export default {
     // module options
     sockets: [{
       name: 'main',
-      url: 'http://localhost:3001',
+      url: 'http://localhost:3001/socket/ticket',
       default: true,
     }]
   },

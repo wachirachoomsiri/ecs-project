@@ -6,20 +6,20 @@
                     <b-icon icon="account-plus" size="is-small">
                     </b-icon> ลงทะเบียน
                 </h1>
-                <form @submit.prevent="register_func">
+                <form name="register" @submit.prevent="register_func">
                     <b-field>
-                        <b-input v-model="register.email" placeholder="อีเมล" type="email" icon="email" autocomplete="email" required>
+                        <b-input v-model="register.email" name="email" autocomplete="email" placeholder="อีเมล" type="email" icon="email" required>
                         </b-input>
                     </b-field>
 
                     <b-field>
-                        <b-input v-model="register.phone_number" placeholder="เบอร์โทรศัพท์" icon="phone" type="tel"
+                        <b-input v-model="register.phone_number" name="tel" autocomplete="tel" placeholder="เบอร์โทรศัพท์" icon="phone" type="tel"
                             required>
                         </b-input>
                     </b-field>
 
                     <b-field>
-                        <b-input v-model="register.password" placeholder="รหัสผ่าน" icon="key" type="password" minlength="8"
+                        <b-input v-model="register.password" name="current-password" autocomplete="current-password" placeholder="รหัสผ่าน" icon="key" type="password" minlength="8"
                             maxlength="32" password-reveal :has-counter="false" required @input="check_pass">
                         </b-input>
                     </b-field>
