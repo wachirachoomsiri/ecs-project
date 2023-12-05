@@ -3,7 +3,7 @@
     <!-- <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0"> -->
     <!-- <div class="box-border bg-white h-auto w-96 p-4 rounded-md shadow-2xl"> -->
     <div class="text-center">
-      <img src="/gear.svg" alt="image" class="mx-auto mb-4 w-32 h-32">
+      <img src="/gear.gif" alt="image" class="mx-auto mb-4 w-32 h-32">
       <h1 class="text-5xl text-gray-500 font-silpakorn mb-8">EE XVII HOMECOMING</h1>
 
       <div>
