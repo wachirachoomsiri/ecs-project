@@ -1,6 +1,6 @@
 /* thai */
 @font-face {
-  font-family: 'Prompt';
+  font-family: Prompt;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 /* vietnamese */
 @font-face {
-  font-family: 'Prompt';
+  font-family: Prompt;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -20,7 +20,7 @@
 
 /* latin-ext */
 @font-face {
-  font-family: 'Prompt';
+  font-family: Prompt;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -30,7 +30,7 @@
 
 /* latin */
 @font-face {
-  font-family: 'Prompt';
+  font-family: Prompt;
   font-style: normal;
   font-weight: 300;
   font-display: swap;

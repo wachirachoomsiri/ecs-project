@@ -13,7 +13,7 @@ $primary-invert: findColorInvert($primary);
 // Lists and maps
 $custom-colors: null !default;
 $custom-shades: null !default;
-$primary-font: "Prompt", $family-sans-serif;
+$primary-font: Prompt, $family-sans-serif;
 $family-primary: $primary-font;
 $family-secondary: $primary-font;
 

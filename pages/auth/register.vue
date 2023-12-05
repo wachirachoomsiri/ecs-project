@@ -8,7 +8,7 @@
                 </h1>
                 <form @submit.prevent="register_func">
                     <b-field>
-                        <b-input v-model="register.email" placeholder="อีเมล" type="email" icon="email" required>
+                        <b-input v-model="register.email" placeholder="อีเมล" type="email" icon="email" autocomplete="email" required>
                         </b-input>
                     </b-field>
 
