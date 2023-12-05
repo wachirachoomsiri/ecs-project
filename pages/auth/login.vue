@@ -34,6 +34,7 @@
 </template>
 <script>
 export default {
+    auth: 'guest',
     data() {
         return {
             login: {
@@ -74,11 +75,6 @@ export default {
                 form[key] = null;
             });
         }
-    },
-    async asyncData(context) {
-        if (context.$auth.loggedIn) {
-            context.redirect(`/dashboard/`);
-        }
-    },
+    }
 }
 </script>
