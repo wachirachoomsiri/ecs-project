@@ -1,7 +1,7 @@
 <template>
   <section class="flex items-center justify-center h-screen">
     <div class="text-center">
-      <img src="/gear.svg" alt="image" class="mx-auto mb-4 w-32 h-32">
+      <img src="/gear.gif" alt="image" class="mx-auto mb-4 w-64 h-64">
       <h1 class="text-5xl text-gray-500 font-silpakorn mb-8">EE XVII HOMECOMING</h1>
 
       <div>
