@@ -1,9 +1,32 @@
 <template>
     <section>
         <!-- {{ this.$auth.user }} -->
-        <div class="flex flex-col items-center mx-auto h-fit">
+        <div class="flex flex-col items-center mx-auto">
             <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-6 rounded-md shadow-2xl">
-                <div class="grid grid-cols-4 auto-cols-max gap-4 sm:gap-6">
+                <div>
+                    <div class="grid grid-cols-4 gap-4 sm:gap-6 w-fit mx-auto">
+                        <div v-for="i of this.row?.slice(0, 4)" :key="i.id">
+                            <div @click="event_tk"
+                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow-md hover:ring`">
+                                <span :id="i.id"
+                                    class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
+                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-8 gap-4 sm:gap-6 w-fit mx-auto mt-4">
+                        <div v-for="i of this.row?.slice(4, this.row.length + 1)" :key="i.id">
+                            <div @click="event_tk" :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow-md hover:ring`">
+                                <span :id="i.id"
+                                    class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
+                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="grid grid-cols-4 auto-cols-max gap-4 sm:gap-6">
                     <a v-for="i of this.row?.slice(0, 4)" @click="event_tk" :ref="`b_${i.id}`"
                         :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow-md hover:ring`">
                         <span :id="i.id"
@@ -20,10 +43,9 @@
                             {{ i.ismy ? "❌" : `${i.id + 1}` }}
                         </span>
                     </a>
-                </div>
+                </div> -->
             </div>
             <div class="flex items-center bg-white h-auto w-fit p-4 mt-3 rounded-md">
-                <!-- <div class="grid grid-cols-2 gap-4 sm:gap-6"> -->
                 <span
                     class="shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-md hover:ring">
                 </span>
@@ -39,19 +61,34 @@
                     จองแล้ว
                 </p>
             </div>
-            <!-- {{ this.row }} -->
-            <!-- 
-             -->
-            <!-- <div class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-3 rounded-md shadow-2xl">
-                
-            </div> -->
         </div>
         <div class="flex flex-col items-center mx-auto h-20 mt-5">
             <div class="grid grid-cols-2 gap-4">
-                <a @click="$router.push('/store')" class="drop-shadow-xl select-none bg-gradient-to-r from-neutral-800 to-gray-600 hover:brightness-125 hover:ring rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">ย้อนกลับ</a>
-                <a class="drop-shadow-xl select-none hover:ring bg-gradient-to-r from-orange-600 to-orange-400 rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">จอง</a>
+                <a @click="gotostore"
+                    class="drop-shadow-xl select-none bg-gradient-to-r from-neutral-800 to-gray-600 hover:brightness-125 hover:ring rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">ย้อนกลับ</a>
+                <a
+                    class="drop-shadow-xl select-none hover:ring bg-gradient-to-r from-orange-600 to-orange-400 rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">จอง</a>
             </div>
         </div>
+        <!-- <div>
+            <div>
+                <div class="deg-0">
+                    Lor
+                </div>
+                <div class="deg-45">
+                    Lore
+                </div>
+                <div class="deg-90">
+                    Lore
+                </div>
+                <div class="deg-135">
+                    Lorem
+                </div>
+                <div class="deg-180">
+                    Lorem
+                </div>
+            </div>
+        </div> -->
 
     </section>
 </template>
@@ -137,7 +174,10 @@ export default {
 
     },
     methods: {
-        reconnect(){
+        gotostore(){
+            this.$router.push('/store')
+        },
+        reconnect() {
             setTimeout(() => {
                 this.socket.connect()
             }, 1000);
