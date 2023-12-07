@@ -1,16 +1,20 @@
 <template>
     <section>
         <!-- {{ this.$auth.user }} -->
-        <div class="flex flex-col items-center mx-auto">
-            <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-6 rounded-md shadow-3xl">
+        <div class="flex flex-col items-center mx-auto mb-8">
+            <div class="grid grid-cols-2 gap-4 w-96 mt-4 mb-0 ">
+                <b-button @click="$router.go(-1)" type="is-dark">ย้อนกลับ</b-button>
+                <b-button @click="" type="is-dark">ประวัติการจอง</b-button>
+            </div>
+            <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
                 <div>
                     <div class="grid grid-cols-4 gap-4 sm:gap-6 w-fit mx-auto">
                         <div v-for="i of this.row?.slice(0, 4)" :key="i.id">
                             <div @mouseover="mouseover" @mouseout="mouseout" @click="event_tk"
-                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} ${(i.mouse_state==1)? 'ring ring-amber-400': '' } h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-md hover:ring`">
+                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} ${(i.mouse_state == 1) ? 'ring ring-amber-400' : ''} h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-md hover:ring`">
                                 <span :id="i.id"
                                     class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
-                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
+                                    {{ (i.ismy && (i.status == 1)) ? "❌" : `${i.id + 1}` }}
                                 </span>
                             </div>
                         </div>
@@ -18,17 +22,17 @@
                     <div class="grid grid-cols-8 gap-4 sm:gap-6 w-fit mx-auto mt-4">
                         <div v-for="i of this.row?.slice(4, this.row.length + 1)" :key="i.id">
                             <div @mouseover="mouseover" @mouseout="mouseout" @click="event_tk"
-                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} ${(i.mouse_state==1)? 'ring ring-amber-400': '' } h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-md hover:ring`">
+                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} ${(i.mouse_state == 1) ? 'ring ring-amber-400' : ''} h-10 w-10 sm:h-14 sm:w-14 rounded-full shadow-md hover:ring`">
                                 <span :id="i.id"
                                     class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
-                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
+                                    {{ (i.ismy && (i.status == 1)) ? "❌" : `${i.id + 1}` }}
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex items-center bg-white h-auto w-fit p-4 mt-3 rounded-full">
+            <div class="flex items-center bg-white h-auto w-fit p-4 mt-4 rounded-full">
                 <span
                     class="shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">
                 </span>
@@ -44,99 +48,131 @@
                     จองแล้ว
                 </p>
             </div>
-            <!-- <div v-show="row" class="flex flex-col items-center bg-white h-screen w-screen p-4 mt-6 rounded-md shadow-2xl">
-                <div class="rotate-[60deg]">
-                    <div class="translate-x-52 translate-y-1 shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">1</div>
-                </div>
-                <div class="rotate-[80deg]">
-                    <div class="translate-x-48 translate-y-2 shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">2</div>
-                </div>
-                <div class="rotate-[100deg]">
-                    <div class="translate-x-44 translate-y-3 shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">3</div>
-                </div>
-                <div class="rotate-[120deg]">
-                    <div class="translate-x-40 translate-y-4 shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">4</div>
-                </div>
-           </div> -->
-            <!-- <div class="ring rounded-full relative m-80 mt-0">
-                    <div class="absolute m-[-15px] top-[50%] left-[50%] block translate-x-[130px] translate-y-[130px] rotate-[60deg] overflow-hidden shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 rounded-full hover:ring">
-                    </div>
-                    <div class="absolute m-[-15px] top-[50%] left-[50%] block translate-x-[130px] translate-y-[130px] rotate-[80deg] overflow-hidden shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 rounded-full hover:ring">
-                    </div>
-                    <div class="absolute m-[-15px] top-[50%] left-[50%] block translate-x-[130px] translate-y-[130px] rotate-[100deg] overflow-hidden shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 rounded-full hover:ring">
-                    </div>
-                    <div class="absolute m-[-15px] top-[50%] left-[50%] block translate-x-[130px] translate-y-[130px] rotate-[120deg] overflow-hidden shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 rounded-full hover:ring">
-                    </div>
-                </div> -->
-            <!-- <div class="grid grid-cols-4 gap-4 sm:gap-6 w-fit mx-auto">
-                        <div v-for="i of this.row?.slice(0, 4)" :key="i.id">
-                            <div @click="event_tk"
-                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow-md hover:ring`">
-                                <span :id="i.id"
-                                    class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
-                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
-                                </span>
-                            </div>
-                        </div>
-                    </div> -->
-            <!-- <div class="grid grid-cols-8 gap-4 sm:gap-6 w-fit mx-auto mt-4">
-                        <div v-for="i of this.row?.slice(4, this.row.length + 1)" :key="i.id">
-                            <div @click="event_tk"
-                                :class="`${(i.status == 2) ? 'bg-gray-500 hover:bg-gray-600 cursor-not-allowed' : (i.status == 1) ? 'bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed' : 'bg-orange-500 hover:bg-orange-600 cursor-pointer'} h-10 w-10 sm:h-14 sm:w-14 rounded-md shadow-md hover:ring`">
-                                <span :id="i.id"
-                                    class="flex flex-col items-center normal-nums justify-center mx-auto h-full text-black font-bold select-none font-silpakorn">
-                                    {{ i.ismy ? "❌" : `${i.id + 1}` }}
-                                </span>
-                            </div>
-                        </div>
-                    </div> -->
+            <div v-if="this.claim_by_me.length != 0">
+                <div class="flex flex-col items-center bg-white h-auto w-auto p-4 mt-4 rounded-2xl">
+                    <b-steps v-model="activeStep" :has-navigation="false">
+                        <b-step-item step="0" label="สรุปรายการ">
+                            <div>
+                                <h1 class="has-text-centered title is-5">เวลาที่เหลือ {{ this.stopwatch }}</h1>
+                                <h2 class="has-text-centered subtitle is-7" style="color: red">
+                                    *เวลาที่เหลือนับจากโต๊ะแรกที่กดจอง</h2>
+                                <hr>
+                                <div>
+                                    <table
+                                        class="table-auto rounded-xl border-slate-300 border-dotted border-2 w-80 sm:w-96">
+                                        <thead>
+                                            <tr>
+                                                <th>&nbsp;&nbsp;หมายเลขโต๊ะ</th>
+                                                <th>ราคา</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="i of this.claim_by_me" :key="i.id">
+                                                <td>&nbsp;&nbsp;{{ i.id + 1 }}</td>
+                                                <td>{{ (user_type == 'new' ? Number(5000) : Number(4500)).toLocaleString()
+                                                }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
 
-        </div>
-        <div class="flex flex-col items-center mx-auto h-20 mt-5">
-            <div class="grid grid-cols-2 gap-4">
-                <a @click="gotostore"
-                    class="drop-shadow-xl select-none bg-gradient-to-r from-neutral-800 to-gray-600 hover:brightness-125 hover:ring rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">ย้อนกลับ</a>
-                <a
-                    class="drop-shadow-xl select-none hover:ring bg-gradient-to-r from-orange-600 to-orange-400 rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">จอง</a>
+                                <div class="font-bold mt-2 mx-44 sm:mx-60 mr-auto">
+                                    ราคารวม {{ (Number(user_type == 'new' ? Number(5000) :
+                                        Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท
+                                </div>
+                            </div>
+                        </b-step-item>
+                        <b-step-item step="1" label="ชำระเงิน">
+                            <!-- {{ activeStep }} -->
+                            <h1 class="has-text-centered title is-5">เวลาที่เหลือ {{ this.stopwatch }}</h1>
+                            <h2 class="has-text-centered subtitle is-7" style="color: red">
+                                *เวลาที่เหลือนับจากโต๊ะแรกที่กดจอง</h2>
+                            <hr>
+                            <!-- <div class="font-bold has-text-centered text-xl">
+                                จำนวนเงิน {{ (Number(user_type == 'new' ? Number(5000) :
+                                    Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท
+                            </div> -->
+                            <div class="has-text-centered">
+                                <!-- <b-image style="max-width: 250px;margin: auto;" src="/promptpay.png"></b-image> -->
+                                <!-- <b-image class="pt-0" :src="`https://chart.googleapis.com/chart?cht=qr&chl=${qrcode}&chs=512x512&choe=UTF-8`"></b-image> -->
+                                <h2 class="font-extrabold text-2xl pb-2">ธนาคารกรุงเทพ</h2>
+                                <div @click="copytokip">
+                                    <b-tooltip position="is-right" label="กดเพื่อคัดลอก" always>
+                                        <p class="box-border border-2 font-medium text-xl select-text">6527078072</p>
+                                    </b-tooltip>
+                                </div>
+                                <p class="title is-5 pt-2">น.ส. จิดาภา เลาหสถิตย์</p>
+                                <p class="subtitle"> จำนวนเงิน {{ (Number(user_type == 'new' ? Number(5000) :
+                                    Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท</p>
+                                <h2 class="has-text-centered subtitle is-6" style="color: red">
+                                    *กรุณาโอนเงินจำนวนนี้เท่านั้น ห้ามขาดห้ามเกิน</h2>
+                            </div>
+                            <hr>
+                            <form name="upload" @submit.prevent="upload_slip_func">
+                                <b-field>
+                                    <b-upload accept="image/*" v-model="file" drag-drop expanded required>
+                                        <section class="section">
+                                            <div class="content has-text-centered">
+                                                <p>
+                                                    <b-icon icon="upload" size="is-large">
+                                                    </b-icon>
+                                                </p>
+                                                <p>วางสลิปของคุณที่นี่ หรือคลิกเพื่ออัปโหลด</p>
+                                            </div>
+                                        </section>
+                                    </b-upload>
+                                </b-field>
+                                <div v-if="file?.name" class="tags">
+                                    <span class="tag is-primary is-medium">
+                                        {{ file?.name }}
+                                        <button class="delete is-medium" type="button" @click="file = null">
+                                        </button>
+                                    </span>
+                                </div>
+                                <div class="mt-3 buttons">
+                                    <b-button native-type="submit" type="is-primary" :disabled="file == null"
+                                        expanded>อัพโหลดข้อมูล</b-button>
+                                </div>
+                            </form>
+                        </b-step-item>
+                        <hr>
+                    </b-steps>
+                    <div class="mt-0 mb-4">
+                        <a v-if="activeStep == 1" @click="activeStep--"
+                            class="drop-shadow-xl select-none bg-gradient-to-r from-neutral-800 to-gray-600 hover:brightness-125 hover:ring rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">ย้อนกลับ</a>
+                        <a v-if="this.activeStep != 1" @click="next_step"
+                            class="drop-shadow-xl select-none hover:ring bg-gradient-to-r from-orange-600 to-orange-400 rounded-md py-3 px-8 text-white hover:text-white text-center font-bold">ถัดไป</a>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-
-
-        <!-- <div>
-            <div>
-                <div class="deg-0">
-                    Lor
-                </div>
-                <div class="deg-45">
-                    Lore
-                </div>
-                <div class="deg-90">
-                    Lore
-                </div>
-                <div class="deg-135">
-                    Lorem
-                </div>
-                <div class="deg-180">
-                    Lorem
-                </div>
-            </div>
-        </div> -->
-
     </section>
 </template>
 <script>
+import QrScanner from 'qr-scanner';
 export default {
     auth: true,
-    name: 'IndexPage',
+    name: 'ticket',
     data() {
         return {
+            file: null,
+            upload: {
+                qrcode: null
+            },
+            activeStep: 0,
             loading_screen: null,
-            row: null
+            row: null,
+            user_type: null,
+            claim_by_me: [],
+            timeout: null,
+            stopwatch: null,
+            stw_intv: null
         }
     },
-    mounted() {
+    async mounted() {
+        clearInterval(this.stw_intv);
+
         this.socket = this.$nuxtSocket({
             // channel: '/',
             reconnection: false,
@@ -154,16 +190,20 @@ export default {
                 return { ...d, ismy: (d.claim == this.$auth.user), mouse_state: 0 }
             })
             this.row = maped;
+            this.myclaim();
         });
 
         this.socket.on('table_update', (msg) => {
+            this.activeStep = 0;
             this.row[msg.id]['status'] = msg.status;
-            if (msg.claim == this.$auth.user) {
+            this.row[msg.id]['claim'] = msg.claim;
+            this.row[msg.id]['ex_claim_date_time'] = msg.ex_claim_date_time;
+            if ((msg.claim == this.$auth.user) && msg.status != 2) {
                 this.row[msg.id]['ismy'] = true;
             } else {
                 this.row[msg.id]['ismy'] = false;
             }
-            // console.log(this.row[msg.id]['ismy'])
+            this.myclaim();
         });
 
         this.socket.on("connect", () => {
@@ -182,7 +222,7 @@ export default {
                     type: 'is-success',
                     hasIcon: true,
                     closable: true,
-                    queue: false,
+                    // queue: false,
                 })
             } else if (data.status == "fail") {
                 this.$buefy.notification.open({
@@ -217,25 +257,98 @@ export default {
                 this.row[data.id]['mouse_state'] = 0;
             }
         });
+
+        let { data } = await this.$auth.fetchUser();
+        this.user_type = data.type;
     },
     methods: {
+        copytokip() {
+            navigator.clipboard.writeText('6527078072');
+            this.$buefy.toast.open('คัดลอกแล้ว')
+        },
+        async upload_slip_func() {
+            const loadingComponent = this.$buefy.loading.open({ container: null });
+            try {
+                let { data } = await QrScanner.scanImage(this.file, { returnDetailedScanResult: true })
+                this.upload.qrcode = data;
+                try {
+                    const response = await this.$axios.post("/api/socket/ticket/upload", { ...this.upload });
+                    console.log(response);
+                } catch (error) {
+                    this.$buefy.notification.open({
+                        duration: 5000,
+                        message: `${error?.response?.data?.message || error}`,
+                        type: 'is-danger',
+                        hasIcon: true,
+                        closable: false,
+                        queue: true,
+                    })
+                }
+            } catch (error) {
+                this.$buefy.notification.open({
+                    duration: 5000,
+                    message: `${error}`,
+                    type: 'is-danger',
+                    hasIcon: true,
+                    closable: true,
+                    queue: false,
+                })
+            } finally {
+                loadingComponent.close()
+            }
+        },
+        next_step() {
+            if (this.activeStep < 1) {
+                this.activeStep++;
+            }
+        },
+        async myclaim() {
+            this.claim_by_me = await this.row.filter((data) => {
+                if (data.ismy && data.status == 1) {
+                    return true
+                }
+            });
+            var min = Math.min(...this.claim_by_me.map(item => {
+                return new Date(item.ex_claim_date_time).getTime()
+            }));
+            if (min != Infinity) {
+                this.timeout = min;
+                this.tick_watch();
+                clearInterval(this.stw_intv);
+                this.stw_intv = setInterval(() => {
+                    this.tick_watch();
+                }, 100);
+            }
+        },
+        tick_watch() {
+            let timenow = new Date().getTime();
+            let mSeconds = this.timeout - timenow;
+            let minutes = Math.floor((((mSeconds % 31536000000) % 86400000) % 3600000) / 60000);
+            let seconds = Math.floor(((((mSeconds % 31536000000) % 86400000) % 3600000) % 60000) / 1000);
+            let f = '';
+            if (minutes) {
+                f += `${minutes} นาที `
+            }
+            if (seconds) {
+                f += `${seconds} วินาที`
+            }
+            this.stopwatch = f;
+        },
         gotostore() {
-            this.$router.push('/store')
+            this.$router.push('/store');
         },
         reconnect() {
             setTimeout(() => {
                 this.socket.connect()
             }, 1000);
         },
-        mouseover(el){
+        mouseover(el) {
             let b_data = this.row[el.target.id];
-            // console.log("mouseover",b_data.id);
             this.socket.emit("table_mouseover", { id: b_data.id, user: this.$auth.user });
         },
-        mouseout(el){
+        mouseout(el) {
             let b_data = this.row[el.target.id];
-            // console.log("mouseout",b_data.id);
-            this.socket.emit("table_mouseout", { id: b_data.id , user: this.$auth.user });
+            this.socket.emit("table_mouseout", { id: b_data.id, user: this.$auth.user });
         },
         // remove_list_class(classList, list) {
         //     list.forEach(element => {
@@ -272,38 +385,9 @@ export default {
         //     // this.socket.emit("table_list")
         //     // console.log()
         // }
+    },
+    destroyed() {
+        clearInterval(this.stw_intv)
     }
 }
 </script>
-<!-- <style scoped>
-.circle-big {
-    position: relative;
-    height: 180px;
-    width: 180px;
-    padding: 21px;
-    border-radius: 50% 50%;
-    margin: 100px;
-}
-
-.circle-big:before {
-    position: absolute;
-    height: 90px;
-    width: 180px;
-    border-radius: 90px 90px 0 0;
-    content:""; 
-}
-
-.circle {
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    top: 50%;
-    left: 50%;
-    margin: -15px;
-}
-
-.two { transform: rotate(60deg) translate(130px); }
-.three { transform: rotate(80deg) translate(130px); }
-.four { transform: rotate(100deg) translate(130px); }
-.five { transform: rotate(120deg) translate(130px); }
-</style> -->

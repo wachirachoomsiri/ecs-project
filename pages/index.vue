@@ -2,8 +2,8 @@
   <section class="flex items-center justify-center h-screen">
     <div class="text-center">
       <img src="/gear.gif" alt="image" class="mx-auto mb-4 w-64 h-64">
-      <h1 class="text-5xl text-gray-500 font-silpakorn mb-8">EE XVII HOMECOMING</h1>
-
+      <h1 class="text-5xl text-gray-500 font-silpakorn mb-8 shadow-orange-300 [text-shadow:_0_0_22px_var(--tw-shadow-color)]">EE XVII HOMECOMING</h1>
+      <!-- <h1 class="">Hello</h1> -->
       <div>
         <NuxtLink to="/auth/login" class="text-5xl font-silpakorn mb-4">เข้าสู่ระบบ</NuxtLink>
         <span class="text-5xl text-gray-500">|</span>

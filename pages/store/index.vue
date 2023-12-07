@@ -1,19 +1,22 @@
 <template>
-    <section>
-        {{ this.$auth.user }}
+    <section class="flex items-center justify-center h-screen">
+        <div>
+            
+        </div>
     </section>
 </template>
 <script>
 export default {
     auth: true,
-    name: 'IndexPage',
+    name: 'storeIndex',
     data() {
         return {
             data: null
         }
     },
-    mounted() {
-
+    async mounted() {
+        // let {data} = await this.$auth.fetchUser()
+        // console.log(data.type)
     },
 }
 </script>

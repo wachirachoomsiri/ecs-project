@@ -1,26 +1,37 @@
 <template>
     <section>
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
-            <div class="box-border bg-white h-auto w-96 p-4 rounded-md shadow-2xl">
+        <div class="flex flex-col items-center justify-center mt-0 px-6 py-6 mx-auto h-screen lg:py-0">
+            <div class="bg-white h-auto w-96 p-4 rounded-xl shadow-orange-300 shadow-2xl">
                 <h1 class="title is-4 has-text-centered">
                     <b-icon icon="account-plus" size="is-small">
                     </b-icon> ลงทะเบียน
                 </h1>
                 <form name="register" @submit.prevent="register_func">
                     <b-field>
-                        <b-input v-model="register.email" name="email" autocomplete="email" placeholder="อีเมล" type="email" icon="email" required>
+                        <b-input v-model="register.email" name="email" autocomplete="email" placeholder="อีเมล" type="email"
+                            icon="email" required>
+                        </b-input>
+                    </b-field>
+
+                    <b-field class="flex flex-col items-center justify-center">
+                        <b-radio v-model="register.type" name="type" native-value="new" size="is-medium" required>
+                            <b-icon icon="account"></b-icon> นักศึกษาปัจจุบัน
+                        </b-radio>
+                        <b-radio v-model="register.type" name="type" native-value="old" size="is-medium" required>
+                            <b-icon icon="school"></b-icon> ศิษย์เก่า
+                        </b-radio>
+                    </b-field>
+
+                    <b-field>
+                        <b-input v-model="register.phone_number" name="tel" autocomplete="tel" placeholder="เบอร์โทรศัพท์"
+                            icon="phone" type="tel" required>
                         </b-input>
                     </b-field>
 
                     <b-field>
-                        <b-input v-model="register.phone_number" name="tel" autocomplete="tel" placeholder="เบอร์โทรศัพท์" icon="phone" type="tel"
-                            required>
-                        </b-input>
-                    </b-field>
-
-                    <b-field>
-                        <b-input v-model="register.password" name="current-password" autocomplete="current-password" placeholder="รหัสผ่าน" icon="key" type="password" minlength="8"
-                            maxlength="32" password-reveal :has-counter="false" required @input="check_pass">
+                        <b-input v-model="register.password" name="current-password" autocomplete="current-password"
+                            placeholder="รหัสผ่าน" icon="key" type="password" minlength="8" maxlength="32" password-reveal
+                            :has-counter="false" required @input="check_pass">
                         </b-input>
                     </b-field>
 
@@ -42,9 +53,10 @@
                 </form>
                 <hr class="mt-3 mb-3">
                 <p class="has-text-centered">
-                    ลงทะเบียนไปแล้ว <NuxtLink to="/auth/login">เข้าสู่ระบบ</NuxtLink>
+                    ลงทะเบียนไปแล้ว <NuxtLink to="/auth/login">เข้าสู่ระบบ</NuxtLink><br>
+                    <NuxtLink to="/">หน้าแรก</NuxtLink>
                 </p>
-                
+
             </div>
         </div>
     </section>
@@ -57,6 +69,7 @@ export default {
             register: {
                 email: null,
                 phone_number: null,
+                type: null,
                 password: null,
                 confirm_password: null
             },
@@ -78,7 +91,7 @@ export default {
                 const response = await this.$axios.post("/api/auth/register", { ...this.register })
                 this.clear_form(this.register);
                 this.$buefy.notification.open({
-                    duration: 5000,
+                    duration: 2000,
                     message: `${response?.data?.message} กำลังนำคุณไปหน้าเข้าสู่ระบบ `,
                     type: 'is-success',
                     hasIcon: true,
@@ -89,7 +102,7 @@ export default {
                 })
                 setTimeout(() => {
                     this.$router.push("/auth/login")
-                }, 5000);
+                }, 2000);
             } catch (err) {
                 this.$buefy.notification.open({
                     duration: 5000,
