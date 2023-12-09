@@ -56,6 +56,7 @@ export default {
             const loadingComponent = this.$buefy.loading.open({ container: null })
             try {
                 const response = await this.$auth.loginWith('local', { data: this.login })
+                // localStorage.setItem("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjU3MWQ2YmM5YTJjYWY2NzM4MGVlYjczIiwidHlwZSI6Im9sZCIsImlhdCI6MTcwMjE0ODY0MH0.7POHnNmWF_0lfWurDj64zeaU6C2TrzhM5ToxE_JqMYE");
                 this.clear_form(this.login);
                 this.$buefy.notification.open({
                     duration: 5000,

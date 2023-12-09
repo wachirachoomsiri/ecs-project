@@ -53,7 +53,7 @@ export default {
         // console.log(data.type)
         try {
             const response = await this.$axios.get("/api/history/get")
-            console.log(response.data)
+
             this.data = response.data.table.map(data => {
                 return {
                     id: data.id + 1, price: (Number(response.data.type == 'new' ? Number(1760) :
