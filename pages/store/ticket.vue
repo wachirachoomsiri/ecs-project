@@ -3,8 +3,8 @@
         <!-- {{ this.$auth.user }} -->
         <div class="flex flex-col items-center mx-auto mb-8">
             <div class="grid grid-cols-2 gap-4 w-96 mt-4 mb-0 ">
-                <b-button @click="$router.go(-1)" type="is-dark">ย้อนกลับ</b-button>
-                <b-button @click="" type="is-dark">ประวัติการจอง</b-button>
+                <b-button @click="$router.push('/store')" type="is-dark">ย้อนกลับ</b-button>
+                <b-button @click="$router.push('/history/ticket')" type="is-dark">ประวัติการจอง</b-button>
             </div>
             <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
                 <div>
@@ -366,7 +366,7 @@ export default {
                 this.loading_screen = this.$buefy.loading.open({ container: null });
                 this.socket.emit("table_click", { id: b_data._id });
                 this.clear_loading();
-            } else if (b_data.status == 1) {
+            } else if (b_data.status == 1 && b_data.ismy) {
                 this.loading_screen = this.$buefy.loading.open({ container: null });
                 this.socket.emit("table_unclick", { id: b_data._id });
                 this.clear_loading();
