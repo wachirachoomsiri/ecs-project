@@ -199,6 +199,7 @@ export default {
             this.myclaim();
         });
 
+
         this.socket.on('table_update', (msg) => {
             this.activeStep = 0;
             this.row[msg.id]['status'] = msg.status;
