@@ -153,6 +153,11 @@
 import QrScanner from 'qr-scanner';
 export default {
     auth: true,
+    head() {
+        return {
+            title: "จองโต๊ะ - EE XVII HOMECOMING",
+        }
+    },
     name: 'ticket',
     data() {
         return {

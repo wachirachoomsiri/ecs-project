@@ -64,6 +64,11 @@
 <script>
 export default {
     auth: 'guest',
+    head() {
+        return {
+            title: "ลงทะเบียน - EE XVII HOMECOMING",
+        }
+    },
     data() {
         return {
             register: {

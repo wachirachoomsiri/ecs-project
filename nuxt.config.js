@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'esc-project',
+    title: 'EE XVII HOMECOMING',
     // htmlAttrs: {
     //   lang: 'th-TH'
     // },

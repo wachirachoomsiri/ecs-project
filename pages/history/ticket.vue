@@ -18,6 +18,11 @@
 <script>
 export default {
     auth: true,
+    head() {
+        return {
+            title: "ประวัติการจองโต๊ะ - EE XVII HOMECOMING",
+        }
+    },
     name: 'TicketHistoryIndex',
     data() {
         return {

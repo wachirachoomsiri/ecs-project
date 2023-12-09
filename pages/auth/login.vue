@@ -8,13 +8,15 @@
                 </h1>
                 <form name="login" @submit.prevent="login_func" autocomplete="on">
                     <b-field>
-                        <b-input v-model="login.email" placeholder="อีเมล" type="email" icon="email" name="email" autocomplete="username" required>
+                        <b-input v-model="login.email" placeholder="อีเมล" type="email" icon="email" name="email"
+                            autocomplete="username" required>
                         </b-input>
                     </b-field>
 
                     <b-field>
-                        <b-input v-model="login.password" placeholder="รหัสผ่าน" icon="key" type="password" name="current-password" autocomplete="current-password" minlength="8"
-                            maxlength="32" password-reveal :has-counter="false" required>
+                        <b-input v-model="login.password" placeholder="รหัสผ่าน" icon="key" type="password"
+                            name="current-password" autocomplete="current-password" minlength="8" maxlength="32"
+                            password-reveal :has-counter="false" required>
                         </b-input>
                     </b-field>
 
@@ -36,6 +38,11 @@
 <script>
 export default {
     auth: 'guest',
+    head() {
+        return {
+            title: "เข้าสู่ระบบ - EE XVII HOMECOMING",
+        }
+    },
     data() {
         return {
             login: {
