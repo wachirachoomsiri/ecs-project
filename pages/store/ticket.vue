@@ -8,6 +8,7 @@
             </div>
             <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
                 <div>
+                    <img src="/map.svg" alt="image" class="mx-auto mb-4 w-128 h-128">
                     <div class="grid grid-cols-4 gap-4 sm:gap-6 w-fit mx-auto">
                         <div v-for="i of this.row?.slice(0, 4)" :key="i.id">
                             <div @mouseover="mouseover" @mouseout="mouseout" @click="event_tk"
