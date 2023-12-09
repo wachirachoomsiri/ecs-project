@@ -69,7 +69,7 @@
                                         <tbody>
                                             <tr v-for="i of this.claim_by_me" :key="i.id">
                                                 <td>&nbsp;&nbsp;{{ i.id + 1 }}</td>
-                                                <td>{{ (user_type == 'new' ? Number(5000) : Number(4500)).toLocaleString()
+                                                <td>{{ (user_type == 'new' ? Number(1760) : Number(4800)).toLocaleString()
                                                 }}
                                                 </td>
                                             </tr>
@@ -78,8 +78,8 @@
                                 </div>
 
                                 <div class="font-bold mt-2 mx-44 sm:mx-60 mr-auto">
-                                    ราคารวม {{ (Number(user_type == 'new' ? Number(5000) :
-                                        Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท
+                                    ราคารวม {{ (Number(user_type == 'new' ? Number(1760) :
+                                        Number(4800)) * this.claim_by_me.length).toLocaleString() }} บาท
                                 </div>
                             </div>
                         </b-step-item>
@@ -90,8 +90,8 @@
                                 *เวลาที่เหลือนับจากโต๊ะแรกที่กดจอง</h2>
                             <hr>
                             <!-- <div class="font-bold has-text-centered text-xl">
-                                จำนวนเงิน {{ (Number(user_type == 'new' ? Number(5000) :
-                                    Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท
+                                จำนวนเงิน {{ (Number(user_type == 'new' ? Number(1760) :
+                                    Number(4800)) * this.claim_by_me.length).toLocaleString() }} บาท
                             </div> -->
                             <div class="has-text-centered">
                                 <!-- <b-image style="max-width: 250px;margin: auto;" src="/promptpay.png"></b-image> -->
@@ -103,8 +103,8 @@
                                     </b-tooltip>
                                 </div>
                                 <p class="title is-5 pt-2">น.ส. จิดาภา เลาหสถิตย์</p>
-                                <p class="subtitle"> จำนวนเงิน {{ (Number(user_type == 'new' ? Number(5000) :
-                                    Number(4500)) * this.claim_by_me.length).toLocaleString() }} บาท</p>
+                                <p class="subtitle"> จำนวนเงิน {{ (Number(user_type == 'new' ? Number(1760) :
+                                    Number(4800)) * this.claim_by_me.length).toLocaleString() }} บาท</p>
                                 <h2 class="has-text-centered subtitle is-6" style="color: red">
                                     *กรุณาโอนเงินจำนวนนี้เท่านั้น ห้ามขาดห้ามเกิน</h2>
                             </div>
