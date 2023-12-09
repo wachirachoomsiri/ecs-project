@@ -49,8 +49,23 @@ export default {
         }
     },
     async mounted() {
-        // let {data} = await this.$auth.fetchUser()
+        // let { data } = await this.$auth.fetchUser()
         // console.log(data.type)
+        try {
+            const response = await this.$axios.get("/api/history/get")
+            console.log(response.data)
+            this.data = response.data.table.map(data => {
+                return {
+                    id: data.id + 1, price: (Number(response.data.type == 'new' ? Number(1760) :
+                        Number(4800))).toLocaleString()
+                }
+            })
+        } catch (error) {
+
+        } finally {
+            this.loadingstate = false
+        }
+
     },
 }
 </script>

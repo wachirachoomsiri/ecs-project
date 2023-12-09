@@ -1,7 +1,8 @@
 <template>
     <section class="flex items-center justify-center h-screen">
         <div>
-            
+            <b-button @click="$router.push('/store/ticket')" type="is-dark">จองโต๊ะ</b-button>
+            <b-button @click="$router.push('/store/shirt')" type="is-dark">จองเสื้อ</b-button>
         </div>
     </section>
 </template>
