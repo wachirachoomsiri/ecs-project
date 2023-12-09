@@ -1,3 +1,4 @@
+const url = 'http://localhost:3001/'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -69,14 +70,14 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'http://127.0.0.1:3001/',
+    baseURL: url,
   },
 
   io: {
     // module options
     sockets: [{
       name: 'main',
-      url: 'http://localhost:3001/socket/ticket',
+      url: `${url}socket/ticket`,
       default: true,
     }]
   },
