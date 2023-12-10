@@ -90,7 +90,7 @@ export default {
             const router = this.$router;
             anime({
                 targets: "div",
-                rotateX: [{ value: "180deg", duration: 1000 }],
+                rotateX: [{ value: "180deg", duration: 1000 }, { value: "0deg", duration: 0, delay: 1000 }],
                 duration: 0,
                 begin: function () {
                     router.push("/auth/login");
