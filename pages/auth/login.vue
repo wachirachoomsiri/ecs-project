@@ -27,7 +27,7 @@
                 </form>
                 <hr class="mt-3 mb-3">
                 <p class="has-text-centered">
-                    ยังไม่ได้ลงทะเบียน <NuxtLink to="/auth/register">ลงทะเบียน</NuxtLink><br>
+                    ยังไม่ได้ลงทะเบียน <a @click="goto_register">ลงทะเบียน</a><br>
                     <NuxtLink to="/">หน้าแรก</NuxtLink>
                 </p>
 
@@ -36,6 +36,7 @@
     </section>
 </template>
 <script>
+import anime from 'animejs/lib/anime.es.js';
 export default {
     auth: 'guest',
     head() {
@@ -51,7 +52,25 @@ export default {
             }
         }
     },
+    mounted() {
+        // anime({
+        //     targets: "div",
+        //     rotateY: [{ value: "180deg", duration: 500,direction: 'reverse' }],
+        //     duration: 0,
+        // });
+    },
     methods: {
+        goto_register() {
+            const router = this.$router;
+            anime({
+                targets: "div",
+                rotateY: [{ value: "180deg", duration: 1000 }],
+                duration: 0,
+                begin: function () {
+                    router.push("/auth/register");
+                }
+            });
+        },
         async login_func() {
             const loadingComponent = this.$buefy.loading.open({ container: null })
             try {

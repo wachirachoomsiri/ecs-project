@@ -53,7 +53,7 @@
                 </form>
                 <hr class="mt-3 mb-3">
                 <p class="has-text-centered">
-                    ลงทะเบียนไปแล้ว <NuxtLink to="/auth/login">เข้าสู่ระบบ</NuxtLink><br>
+                    ลงทะเบียนไปแล้ว <a @click="goto_login">เข้าสู่ระบบ</a><br>
                     <NuxtLink to="/">หน้าแรก</NuxtLink>
                 </p>
 
@@ -62,6 +62,7 @@
     </section>
 </template>
 <script>
+import anime from 'animejs/lib/anime.es.js';
 export default {
     auth: 'guest',
     head() {
@@ -81,7 +82,25 @@ export default {
             password_miss_match: false
         }
     },
+    mounted() {
+        // anime({
+        //     targets: "div",
+        //     rotateY: [{ value: "180deg", duration: 500, direction: 'reverse' }],
+        //     duration: 0,
+        // });
+    },
     methods: {
+        goto_login() {
+            const router = this.$router;
+            anime({
+                targets: "div",
+                rotateY: [{ value: "180deg", duration: 1000 }],
+                duration: 0,
+                begin: function () {
+                    router.push("/auth/login");
+                }
+            });
+        },
         check_pass() {
             if (this.register.password != this.register.confirm_password) {
                 this.password_miss_match = true
