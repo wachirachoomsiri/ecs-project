@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
-            <div class="box-border bg-white h-auto w-96 p-4 rounded-xl shadow-orange-300 shadow-2xl">
+            <div class="box-border bg-white h-auto w-96 p-4 rounded-xl shadow-orange-300 shadow-2xl fade-in-ani">
                 <h1 class="title is-4 has-text-centered">
                     <b-icon icon="account-arrow-right" size="is-small">
                     </b-icon> เข้าสู่ระบบ
@@ -27,7 +27,7 @@
                 </form>
                 <hr class="mt-3 mb-3">
                 <p class="has-text-centered">
-                    ยังไม่ได้ลงทะเบียน <a @click="goto_register">ลงทะเบียน</a><br>
+                    ยังไม่ได้ลงทะเบียน <NuxtLink to="/auth/register">ลงทะเบียน</NuxtLink><br>
                     <NuxtLink to="/">หน้าแรก</NuxtLink>
                 </p>
 
@@ -53,20 +53,36 @@ export default {
         }
     },
     mounted() {
-
+        anime({
+            targets: ".fade-in-ani",
+            keyframes: [
+                {
+                    translateY: 300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateY: 0,
+                    opacity: 1,
+                    duration: 800,
+                    delay: 100,
+                },
+            ],
+            duration: 0,
+        });
     },
     methods: {
-        goto_register() {
-            const router = this.$router;
-            anime({
-                targets: "div",
-                rotateX: [{ value: "180deg", duration: 1000 }, { value: "0deg", duration: 0, delay: 1000 }],
-                duration: 0,
-                begin: function () {
-                    router.push("/auth/register");
-                }
-            });
-        },
+        // goto_register() {
+        //     const router = this.$router;
+        //     anime({
+        //         targets: ".rotateing",
+        //         rotateX: [{ value: "180deg", duration: 1000 }, { value: "0deg", duration: 0, delay: 0 }],
+        //         duration: 0,
+        //         begin: function () {
+        //             router.push("/auth/register");
+        //         }
+        //     });
+        // },
         async login_func() {
             const loadingComponent = this.$buefy.loading.open({ container: null })
             try {

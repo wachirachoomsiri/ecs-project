@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="flex flex-col items-center justify-center mt-0 px-6 py-6 mx-auto h-screen lg:py-0">
-            <div class="bg-white h-auto w-96 p-4 rounded-xl shadow-orange-300 shadow-2xl">
+            <div class="bg-white h-auto w-96 p-4 rounded-xl shadow-orange-300 shadow-2xl fade-in-ani">
                 <h1 class="title is-4 has-text-centered">
                     <b-icon icon="account-plus" size="is-small">
                     </b-icon> ลงทะเบียน
@@ -53,7 +53,7 @@
                 </form>
                 <hr class="mt-3 mb-3">
                 <p class="has-text-centered">
-                    ลงทะเบียนไปแล้ว <a @click="goto_login">เข้าสู่ระบบ</a><br>
+                    ลงทะเบียนไปแล้ว <NuxtLink to="/auth/login">เข้าสู่ระบบ</NuxtLink><br>
                     <NuxtLink to="/">หน้าแรก</NuxtLink>
                 </p>
 
@@ -83,20 +83,36 @@ export default {
         }
     },
     mounted() {
-
+        anime({
+            targets: ".fade-in-ani",
+            keyframes: [
+                {
+                    translateY: 300,
+                    duration: 0,
+                    opacity: 0
+                },
+                {
+                    translateY: 0,
+                    opacity: 1,
+                    duration: 800,
+                    delay: 100,
+                },
+            ],
+            duration: 0,
+        });
     },
     methods: {
-        goto_login() {
-            const router = this.$router;
-            anime({
-                targets: "div",
-                rotateX: [{ value: "180deg", duration: 1000 }, { value: "0deg", duration: 0, delay: 1000 }],
-                duration: 0,
-                begin: function () {
-                    router.push("/auth/login");
-                }
-            });
-        },
+        // goto_login() {
+        //     const router = this.$router;
+        //     anime({
+        //         targets: ".rotateing",
+        //         rotateX: [{ value: "180deg", duration: 1000 }, { value: "0deg", duration: 0, delay: 0 }],
+        //         duration: 0,
+        //         begin: function () {
+        //             router.push("/auth/login");
+        //         }
+        //     });
+        // },
         check_pass() {
             if (this.register.password != this.register.confirm_password) {
                 this.password_miss_match = true
