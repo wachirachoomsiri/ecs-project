@@ -4,7 +4,7 @@
             <div class="flex flex-col items-center mx-auto mb-8">
                 <div class="grid grid-cols-3 gap-4 w-96 mt-4 mb-0 ">
                     <b-button @click="$router.push('/store/ticket')" type="is-dark">จองโต๊ะ</b-button>
-                    <b-button @click="$router.push('/store/shirt')" type="is-dark">จองเสื้อ</b-button>
+                    <b-button @click="$router.push('/store/shirt')" type="is-dark">ซื้อเสื้อ</b-button>
                     <b-button @click="$router.push('/store/shirt')" type="is-dark">ออกจากระบบ</b-button>
                 </div>
                 <div class="text-center">
