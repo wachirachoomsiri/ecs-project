@@ -83,18 +83,14 @@ export default {
         }
     },
     mounted() {
-        // anime({
-        //     targets: "div",
-        //     rotateY: [{ value: "180deg", duration: 500, direction: 'reverse' }],
-        //     duration: 0,
-        // });
+
     },
     methods: {
         goto_login() {
             const router = this.$router;
             anime({
                 targets: "div",
-                rotateY: [{ value: "180deg", duration: 1000 }],
+                rotateX: [{ value: "180deg", duration: 1000 }],
                 duration: 0,
                 begin: function () {
                     router.push("/auth/login");
