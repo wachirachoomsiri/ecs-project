@@ -4,7 +4,7 @@
             <img src="/shirt.svg" alt="image" class="rounded-xl w-screen md:w-[50rem] mt-8">
             <div class="bg-white w-screen md:w-[50rem] rounded-xl shadow-orange-300 shadow-2xl mt-4 p-4 mb-8">
                 <h1 class="text-4xl font-silpakorn mb-4 text-center">ซื้อเสื้อ</h1>
-                <form>
+                <form name="order" @submit.prevent="order_func" autocomplete="on">
                     <b-field label-position="on-border" label="จำนวน:">
                         <b-select expanded required id="count" v-model="form_data.count" name="count">
                             <option value="1">1 ตัว</option>
@@ -52,6 +52,11 @@
                     <b-field label-position="on-border" label="เบอร์โทร:">
                         <b-input required type="tel" v-model="form_data.phone_number" name="tel"></b-input>
                     </b-field>
+
+                    <div class="buttons">
+                        <b-button native-type="submit" type="is-primary" expanded>สั้งซื้อ</b-button>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -87,6 +92,11 @@ export default {
             let response = await this.$axios.get("/api/user/getnumber")
             this.form_data.phone_number = response.data.phone_number
         } catch (error) {} finally {}
+    },
+    methods: {
+        order_func(){
+            alert(this.form_data)
+        }
     },
     computed: {
         result() {
