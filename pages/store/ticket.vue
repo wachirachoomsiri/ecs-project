@@ -284,7 +284,14 @@ export default {
                 this.upload.qrcode = data;
                 try {
                     const response = await this.$axios.post("/api/socket/ticket/upload", { ...this.upload });
-                    console.log(response);
+                    this.$buefy.notification.open({
+                        duration: 5000,
+                        message: `${response?.data?.message}`,
+                        type: 'is-success',
+                        hasIcon: true,
+                        closable: false,
+                        queue: true,
+                    })
                 } catch (error) {
                     this.$buefy.notification.open({
                         duration: 5000,

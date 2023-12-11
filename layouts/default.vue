@@ -53,20 +53,30 @@
                 </b-navbar-item>
                 <b-navbar-item tag="div">
                   <!-- <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ -->
-                  <NuxtLink to="/store/ticket" :class="`${$nuxt.$route.path == '/store/ticket' ? 'is-active' : 'text-slate-800'}`">
-                    <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ 
+                  <NuxtLink to="/store/ticket"
+                    :class="`${$nuxt.$route.path == '/store/ticket' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ
                   </NuxtLink>
                 </b-navbar-item>
                 <b-navbar-item tag="div">
                   <!-- <i class="bi bi-cart2"></i> ซื้อเสื้อ -->
-                  <NuxtLink to="/store/shirt" :class="`${$nuxt.$route.path == '/store/shirt' ? 'is-active' : 'text-slate-800'}`">
-                    <i class="bi bi-ui-radios-grid"></i> ซื้อเสื้อ 
+                  <NuxtLink to="/store/shirt"
+                    :class="`${$nuxt.$route.path == '/store/shirt' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-gift"></i> ซื้อเสื้อ
                   </NuxtLink>
                 </b-navbar-item>
                 <b-navbar-item tag="div">
                   <!-- <i class="bi bi-cart2"></i> ซื้อเสื้อ -->
-                  <NuxtLink to="/history/ticket" :class="`${$nuxt.$route.path == '/history/ticket' ? 'is-active' : 'text-slate-800'}`">
+                  <NuxtLink to="/history/ticket"
+                    :class="`${$nuxt.$route.path == '/history/ticket' ? 'is-active' : 'text-slate-800'}`">
                     <i class="bi bi-receipt"></i> ประวัติการจองโต๊ะ
+                  </NuxtLink>
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                  <!-- <i class="bi bi-cart2"></i> ซื้อเสื้อ -->
+                  <NuxtLink to="/history/shirt"
+                    :class="`${$nuxt.$route.path == '/history/shirt' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-receipt"></i> ประวัติการสั่งเสื้อ
                   </NuxtLink>
                 </b-navbar-item>
                 <b-navbar-item tag="div" class="buttons">
@@ -181,4 +191,5 @@ html,
   .hideonpc {
     display: block;
   }
-}</style>
+}
+</style>

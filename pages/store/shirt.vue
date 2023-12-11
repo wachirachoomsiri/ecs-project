@@ -82,7 +82,6 @@ export default {
                 phone_number: null
             },
             address: [],
-            address_name: '',
             selected: null,
             q: '',
         }
@@ -91,12 +90,46 @@ export default {
         try {
             let response = await this.$axios.get("/api/user/getnumber")
             this.form_data.phone_number = response.data.phone_number
-        } catch (error) {} finally {}
+        } catch (error) { } finally { }
     },
     methods: {
-        order_func(){
-            alert(this.form_data)
+        async order_func() {
+            const loadingComponent = this.$buefy.loading.open({ container: null })
+            try {
+                const response = await this.$axios.post("/api/user/order", { ...this.form_data })
+                this.clear_form(this.form_data);
+                this.$buefy.notification.open({
+                    duration: 2000,
+                    message: `${response?.data?.message} กำลังนำคุณไปหน้าชำระเงิน`,
+                    type: 'is-success',
+                    hasIcon: true,
+                    closable: false,
+                    queue: true,
+                    progressBar: true,
+                    autoClose: true
+                })
+                setTimeout(() => {
+                    this.$router.push(`/store/order/${response?.data?.id}`)
+                }, 2000);
+            } catch (err) {
+                this.$buefy.notification.open({
+                    duration: 5000,
+                    message: `${err?.response?.data?.message || err}`,
+                    type: 'is-danger',
+                    hasIcon: true,
+                    closable: false,
+                    queue: true,
+                })
+            } finally {
+                await loadingComponent.close();
+            }
+        },
+        clear_form(form) {
+            Object.keys(form).forEach(function (key, index) {
+                form[key] = null;
+            });
         }
+
     },
     computed: {
         result() {
