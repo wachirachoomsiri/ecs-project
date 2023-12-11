@@ -2,65 +2,100 @@
   <client-only>
     <div>
       <nav>
-        <b-navbar shadow :mobile-burger="false">
+        <b-navbar transparent shadow :mobile-burger="true"
+          v-if="!['/', '/auth/login', '/auth/register'].includes(this.$nuxt.$route.path)">
           <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/store' }">
-              <img width="50px" height="50px" src="/gear.svg" alt="Website logo" />
+              <img width="28px" height="28px" src="/icon.png" alt="Website logo" />
             </b-navbar-item>
 
-            <div v-show="$auth.loggedIn">
-              <b-navbar-item tag="div" class="hideonpc">
-                <div class="buttons">
-                  <b-button type="is-dark" @click="$router.push('/store/ticket')" class="button">
+            <!-- <div> -->
+            <!-- <b-navbar-item tag="div" class="hideonpc"> -->
+            <!-- <div class="buttons"> -->
+            <!-- <b-button type="is-dark" @click="$router.push('/store/ticket')" class="button">
                     <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ
                   </b-button>
                   <b-button type="is-dark" @click="$router.push('/store/shirt')" class="button">
                     <i class="bi bi-cart2"></i> ซื้อเสื้อ
-                  </b-button>
-                  <b-button type="is-danger" @click="logout()" class="button">
+                  </b-button> -->
+
+            <!-- <b-button type="is-danger" @click="logout()" class="button">
                     <i class="bi bi-box-arrow-right"></i> ล็อกเอาท์
-                  </b-button>
-                </div>
-              </b-navbar-item>
-            </div>
+                  </b-button> -->
+            <!-- </div> -->
+            <!-- </b-navbar-item> -->
+            <!-- </div> -->
 
           </template>
 
           <template #end>
-            <div v-show="$auth.loggedIn">
+            <div>
               <b-navbar-item tag="div">
-                <div class="buttons">
+                <!-- <div class="buttons">
                   <b-button type="is-dark" @click="$router.push('/store/ticket')" class="button">
                     <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ
                   </b-button>
                   <b-button type="is-dark" @click="$router.push('/store/shirt')" class="button">
                     <i class="bi bi-cart2"></i> ซื้อเสื้อ
                   </b-button>
-                  <b-button type="is-danger" @click="logout()" class="button">
-                    <i class="bi bi-box-arrow-right"></i> ล็อกเอาท์
+                </div> -->
+                <b-navbar-item tag="div">
+                  <NuxtLink to="/" :class="`${$nuxt.$route.path == '/' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-house"></i> หน้าแรก
+                  </NuxtLink>
+
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                  <!-- <i class="bi bi-shop"></i>ร้านค้า -->
+                  <NuxtLink to="/store" :class="`${$nuxt.$route.path == '/store' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-shop"></i> ร้านค้า
+                  </NuxtLink>
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                  <!-- <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ -->
+                  <NuxtLink to="/store/ticket" :class="`${$nuxt.$route.path == '/store/ticket' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-ui-radios-grid"></i> จองโต๊ะ 
+                  </NuxtLink>
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                  <!-- <i class="bi bi-cart2"></i> ซื้อเสื้อ -->
+                  <NuxtLink to="/store/shirt" :class="`${$nuxt.$route.path == '/store/shirt' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-ui-radios-grid"></i> ซื้อเสื้อ 
+                  </NuxtLink>
+                </b-navbar-item>
+                <b-navbar-item tag="div">
+                  <!-- <i class="bi bi-cart2"></i> ซื้อเสื้อ -->
+                  <NuxtLink to="/history/ticket" :class="`${$nuxt.$route.path == '/history/ticket' ? 'is-active' : 'text-slate-800'}`">
+                    <i class="bi bi-receipt"></i> ประวัติการจองโต๊ะ
+                  </NuxtLink>
+                </b-navbar-item>
+                <b-navbar-item tag="div" class="buttons">
+                  <b-button type="is-danger" @click="logout()" expanded>
+                    <i class="bi bi-box-arrow-right"></i> ออกจากระบบ
                   </b-button>
-                </div>
+                  <!-- <i class="bi bi-box-arrow-right"></i> ล็อกเอาท์ -->
+                </b-navbar-item>
               </b-navbar-item>
             </div>
           </template>
         </b-navbar>
       </nav>
 
-      <section id="menu" class="main-content columns">
-
-        <main class="container column is-8">
-          <Nuxt />
-        </main>
-      </section>
+      <main>
+        <Nuxt />
+        <!-- <main>
+          
+        </main> -->
+      </main>
 
 
 
       <!-- </div> -->
-      <footer>
+      <!-- <footer>
         <div class="has-text-centered">
           <p>Copyright © 2023 | <a href="https://ee-homecoming.com/">ee-homecoming.com</a></p>
         </div>
-      </footer>
+      </footer> -->
     </div>
   </client-only>
 </template>
@@ -146,5 +181,4 @@ html,
   .hideonpc {
     display: block;
   }
-}
-</style>
+}</style>

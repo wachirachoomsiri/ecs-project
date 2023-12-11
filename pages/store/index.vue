@@ -46,6 +46,7 @@ export default {
         }
     },
     async mounted() {
+        
         // let {data} = await this.$auth.fetchUser()
         // console.log(data.type)
     },

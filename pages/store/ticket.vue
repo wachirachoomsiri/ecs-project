@@ -2,13 +2,17 @@
     <section>
         <!-- {{ this.$auth.user }} -->
         <div class="flex flex-col items-center mx-auto mb-8">
-            <div class="grid grid-cols-2 gap-4 w-96 mt-4 mb-0 ">
+            <!-- <div class="grid grid-cols-2 gap-4 w-96 mt-4 mb-0 ">
                 <b-button @click="$router.push('/store')" type="is-dark">ย้อนกลับ</b-button>
                 <b-button @click="$router.push('/history/ticket')" type="is-dark">ประวัติการจอง</b-button>
-            </div>
-            <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
+            </div> -->
+            <div class="flex flex-col items-center bg-white h-fit w-fit p-4 mt-2 rounded-2xl shadow-3xl">
                 <div>
-                    <img src="/map.svg" alt="image" class="mx-auto mb-4 w-128 h-128">
+                    <img src="/map.svg" width="500rem" height="500rem">
+                </div>
+            </div>
+            <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-3 rounded-2xl shadow-3xl">
+                <div>
                     <div class="grid grid-cols-4 gap-4 sm:gap-6 w-fit mx-auto">
                         <div v-for="i of this.row?.slice(0, 4)" :key="i.id">
                             <div @mouseover="mouseover" @mouseout="mouseout" @click="event_tk"
@@ -50,7 +54,7 @@
                 </p>
             </div>
             <div v-if="this.claim_by_me.length != 0">
-                <div class="flex flex-col items-center bg-white h-auto w-auto p-4 mt-4 rounded-2xl">
+                <div class="flex flex-col items-center bg-white h-auto w-auto p-4 mt-4 mb-6 rounded-2xl">
                     <b-steps v-model="activeStep" :has-navigation="false">
                         <b-step-item step="0" label="สรุปรายการ">
                             <div>
