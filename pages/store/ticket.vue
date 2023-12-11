@@ -7,9 +7,9 @@
                 <b-button @click="$router.push('/history/ticket')" type="is-dark">ประวัติการจอง</b-button>
             </div> -->
             <div class="flex flex-col items-center bg-white h-fit w-fit p-4 mt-2 rounded-2xl shadow-3xl">
-                <div>
-                    <img src="/map.svg" width="500rem" height="500rem">
-                </div>
+                <!-- <div> -->
+                <img src="/map.svg" width="500rem" height="500rem">
+                <!-- </div> -->
             </div>
             <div v-show="row" class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-3 rounded-2xl shadow-3xl">
                 <div>
