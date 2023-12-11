@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div>
+        <!-- <div> -->
             <div class="flex flex-col mx-4 sm:mx-auto items-center mb-8 h-fit">
                 <!-- <div class="text-center mt-8"> -->
                 <!-- <div class="flex flex-col items-center justify-center mx-4"> -->
@@ -63,7 +63,7 @@
                     <b-button @click="$router.push('/store/shirt')" type="is-dark">ออกจากระบบ</b-button>
                 </div> -->
             </div>
-        </div>
+        <!-- </div> -->
     </section>
 </template>
 <script>
