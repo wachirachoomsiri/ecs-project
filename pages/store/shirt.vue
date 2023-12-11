@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="flex flex-col sm:mx-auto items-center">
+        <div class="flex fade-anime flex-col sm:mx-auto items-center">
             <img src="/shirt.svg" alt="image" class="rounded-xl w-screen md:w-[50rem] mt-8">
             <div class="bg-white w-screen md:w-[50rem] rounded-xl shadow-orange-300 shadow-2xl mt-4 p-4 mb-8">
                 <h1 class="text-4xl font-silpakorn mb-4 text-center">ซื้อเสื้อ</h1>
@@ -68,6 +68,7 @@
 
 <script>
 import { searchAddressByDistrict } from 'thai-address-database'
+import anime from 'animejs/lib/anime.es.js';
 
 export default {
     name: 'app',
@@ -87,6 +88,24 @@ export default {
         }
     },
     async mounted() {
+        anime({
+            targets: ".fade-anime",
+            keyframes: [
+                {
+                    translateX: 300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateX: 0,
+                    duration: 800,
+                    opacity: 1,
+                    delay: 300,
+                },
+            ],
+            duration: 0,
+        });
+
         try {
             let response = await this.$axios.get("/api/user/getnumber")
             this.form_data.phone_number = response.data.phone_number

@@ -19,7 +19,7 @@
             <!-- </div> -->
             <!-- </div> -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-fit mt-4 mb-0">
-                <div>
+                <div class="fade-anime1">
                     <div class="card drop-shadow-2xl"
                         style="display: flex;flex-direction: column;height: 100%;margin-top: auto;">
                         <div class="card-image">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="fade-anime2">
                     <div class="card drop-shadow-2xl"
                         style="display: flex;flex-direction: column;height: 100%;margin-top: auto;">
                         <div class="card-image">
@@ -69,6 +69,8 @@
     </section>
 </template>
 <script>
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
     head() {
         return {
@@ -83,6 +85,42 @@ export default {
         }
     },
     async mounted() {
+
+        anime({
+            targets: ".fade-anime1",
+            keyframes: [
+                {
+                    translateX: -300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateX: 0,
+                    duration: 800,
+                    opacity: 1,
+                    delay: 100,
+                },
+            ],
+            duration: 0,
+        });
+
+        anime({
+            targets: ".fade-anime2",
+            keyframes: [
+                {
+                    translateX: -300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateX: 0,
+                    duration: 800,
+                    opacity: 1,
+                    delay: 300,
+                },
+            ],
+            duration: 0,
+        });
 
         // let {data} = await this.$auth.fetchUser()
         // console.log(data.type)

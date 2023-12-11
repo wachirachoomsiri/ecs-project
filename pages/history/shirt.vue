@@ -1,9 +1,9 @@
 <template>
     <section>
-        <div class="mt-4 has-text-centered">
+        <div class="mt-4 has-text-centered fade-anime">
             <b-button class="w-36" @click="$router.push('/store/shirt')" type="is-dark">ย้อนกลับ</b-button>
         </div>
-        <div class="flex flex-col items-center mx-auto mb-8">
+        <div class="flex flex-col items-center mx-auto mb-8 fade-anime">
             <div class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
                 <h1 class="text-2xl font-bold">ประวัติการจองโต๊ะ</h1>
                 <b-table class="pt-4" :loading="loadingstate" :mobile-cards="false" :data="data">
@@ -44,6 +44,8 @@
     </section>
 </template>
 <script>
+import anime from 'animejs/lib/anime.es.js';
+
 export default {
     auth: true,
     head() {
@@ -61,6 +63,24 @@ export default {
         }
     },
     async mounted() {
+
+        anime({
+            targets: ".fade-anime",
+            keyframes: [
+                {
+                    translateY: -300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateY: 0,
+                    duration: 800,
+                    opacity: 1,
+                    delay: 300,
+                },
+            ],
+            duration: 0,
+        });
         // let { data } = await this.$auth.fetchUser()
         // console.log(data.type)
         try {

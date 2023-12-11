@@ -1,7 +1,7 @@
 <template>
     <section>
         <!-- {{ this.$auth.user }} -->
-        <div class="flex flex-col items-center mx-auto mb-8">
+        <div class="fade-anime flex flex-col items-center mx-auto mb-8">
             <!-- <div class="grid grid-cols-2 gap-4 w-96 mt-4 mb-0 ">
                 <b-button @click="$router.push('/store')" type="is-dark">ย้อนกลับ</b-button>
                 <b-button @click="$router.push('/history/ticket')" type="is-dark">ประวัติการจอง</b-button>
@@ -155,6 +155,7 @@
     </section>
 </template>
 <script>
+import anime from 'animejs/lib/anime.es.js';
 import QrScanner from 'qr-scanner';
 export default {
     auth: true,
@@ -182,6 +183,25 @@ export default {
     },
     async mounted() {
         clearInterval(this.stw_intv);
+
+        anime({
+            targets: ".fade-anime",
+            keyframes: [
+                {
+                    translateX: -300,
+                    duration: 0,
+                    opacity: 0,
+                },
+                {
+                    translateX: 0,
+                    duration: 800,
+                    opacity: 1,
+                    delay: 300,
+                },
+            ],
+            duration: 0,
+        });
+
 
         this.socket = this.$nuxtSocket({
             // channel: '/',
