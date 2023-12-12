@@ -1,5 +1,5 @@
-// const url = 'https://api.ee-homecoming.com/'
-const url = 'http://localhost:3001/'
+const url = 'https://api.ee-homecoming.com/'
+// const url = 'http://localhost:3001/'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
