@@ -54,7 +54,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/critters'
+    // '@nuxtjs/critters'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -88,13 +88,13 @@ export default {
     }]
   },
 
-  critters: {
-    // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
-    config: {
-      // Default: 'media'
-      preload: 'swap',
-    },
-  },
+  // critters: {
+  //   // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
+  //   config: {
+  //     // Default: 'media'
+  //     preload: 'swap',
+  //   },
+  // },
 
   buefy: {
     materialDesignIcons: false,

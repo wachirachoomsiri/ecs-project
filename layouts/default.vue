@@ -2,7 +2,7 @@
   <section>
     <nav>
       <b-navbar transparent shadow :mobile-burger="true"
-        v-show="!['/', '/auth/login/', '/auth/register/', '/auth/login', '/auth/register'].includes($nuxt.$route.path)">
+        v-if="!['/', '/auth/login/', '/auth/register/', '/auth/login', '/auth/register'].includes($nuxt.$route.path)">
         <template #brand>
           <b-navbar-item tag="router-link" to="/">
             <img width="28px" height="28px" src="/icon.png" alt="Website logo" />
