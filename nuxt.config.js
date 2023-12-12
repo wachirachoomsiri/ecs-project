@@ -19,20 +19,18 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'preload', href: '/fonts/bootstrap-icons.woff2', as: 'font', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/fonts/-W_8XJnvUD7dzB2Cy_gIfWMuQ5Q.woff2', as: 'font', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/fonts/-W_8XJnvUD7dzB2Cy_gIaWMu.woff2', as: 'font', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/fonts/materialdesignicons-webfont.woff2?v=5.8.55', as: 'font', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/css/css2.css', as: 'style', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/css/bootstrap-icons.min.css', as: 'style', crossorigin: 'anonymous' },
-      { rel: 'preload', href: '/css/materialdesignicons.min.css', as: 'style', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/fonts/bootstrap-icons.woff2', as: 'font', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/fonts/-W_8XJnvUD7dzB2Cy_gIfWMuQ5Q.woff2', as: 'font', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/fonts/-W_8XJnvUD7dzB2Cy_gIaWMu.woff2', as: 'font', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/fonts/materialdesignicons-webfont.woff2?v=5.8.55', as: 'font', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/css/css2.css', as: 'style', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/css/bootstrap-icons.min.css', as: 'style', crossorigin: 'anonymous' },
+      // { rel: 'preload', href: '/css/materialdesignicons.min.css', as: 'style', crossorigin: 'anonymous' },
 
-      { rel: 'stylesheet', href: '/css/css2.css', crossorigin: 'anonymous' },
-      { rel: 'stylesheet', href: '/css/bootstrap-icons.min.css', crossorigin: 'anonymous' },
-      { rel: 'stylesheet', href: '/css/materialdesignicons.min.css', crossorigin: 'anonymous' },
-
-      { rel: 'stylesheet', href: '/css/su-font.css', crossorigin: 'anonymous' },
-
+      // { rel: 'stylesheet', href: '/css/css2.css', crossorigin: 'anonymous' },
+      // { rel: 'stylesheet', href: '/css/bootstrap-icons.min.css', crossorigin: 'anonymous' },
+      // { rel: 'stylesheet', href: '/css/materialdesignicons.min.css', crossorigin: 'anonymous' },
+      // { rel: 'stylesheet', href: '/css/su-font.css', crossorigin: 'anonymous' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -41,6 +39,10 @@ export default {
   css: [
     '@/assets/css/main.css',
     '@/assets/scss/main.scss',
+    '@/static/css/css2.css',
+    '@/static/css/bootstrap-icons.min.css',
+    '@/static/css/materialdesignicons.min.css',
+    '@/static/css/su-font.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
