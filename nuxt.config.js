@@ -54,6 +54,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/critters'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -67,7 +68,7 @@ export default {
 
     'nuxt-socket-io',
 
-    '@nuxtjs/auth-next',
+    '@nuxtjs/auth-next'
 
   ],
 
@@ -87,10 +88,17 @@ export default {
     }]
   },
 
+  critters: {
+    // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
+    config: {
+      // Default: 'media'
+      preload: 'swap',
+    },
+  },
+
   buefy: {
     materialDesignIcons: false,
     css: false,
-    defaultLocale: 'th-TH'
   },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -125,7 +133,7 @@ export default {
           autoprefixer: {},
         },
       },
-    },
+    }
   },
 
   generate: { fallback: true },
