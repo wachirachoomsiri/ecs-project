@@ -1,4 +1,5 @@
-const url = 'https://api.ee-homecoming.com/'
+// const url = 'https://api.ee-homecoming.com/'
+const url = 'http://localhost:3001/'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -78,8 +79,9 @@ export default {
     // module options
     sockets: [{
       name: 'main',
-      url: `${url}socket/ticket`,
+      url: `${url}`,
       default: true,
+      path: "/socket.io/"
     }]
   },
 

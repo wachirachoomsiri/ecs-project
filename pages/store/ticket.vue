@@ -204,7 +204,7 @@ export default {
 
 
         this.socket = this.$nuxtSocket({
-            // channel: '/',
+            channel: 'socket/ticket',
             reconnection: false,
             autoConnect: true,
             reconnectionDelay: 1000,
