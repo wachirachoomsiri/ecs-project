@@ -81,7 +81,7 @@ export default {
       name: 'main',
       url: `${url}`,
       default: true,
-      path: "/socket.io/"
+      // path: "/socket.io/"
     }]
   },
 
