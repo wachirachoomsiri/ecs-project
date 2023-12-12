@@ -5,7 +5,7 @@
         </div>
         <div class="flex flex-col items-center mx-auto mb-8 fade-anime">
             <div class="flex flex-col items-center bg-white h-auto w-fit p-4 mt-2 rounded-2xl shadow-3xl">
-                <h1 class="text-2xl font-bold">ประวัติการจองโต๊ะ</h1>
+                <h1 class="text-2xl font-bold">ประวัติการซื้อเสื้อ</h1>
                 <b-table class="pt-4" :loading="loadingstate" :mobile-cards="false" :data="data">
                     <div id="start"></div>
 
