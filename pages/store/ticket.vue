@@ -39,15 +39,15 @@
             </div>
             <div class="flex items-center bg-white h-auto w-fit p-4 mt-4 rounded-full">
                 <span
-                    class="shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">
+                    class="shadow-md bg-orange-500 hover:bg-orange-600 cursor-pointer h-8 w-8 sm:h-14 sm:w-14 rounded-full hover:ring">
                 </span>
                 <p class="text-xl px-3 font-bold">ว่าง</p>
                 <span
-                    class="shadow-md bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">
+                    class="shadow-md bg-yellow-400 hover:bg-yellow-500 cursor-not-allowed h-8 w-8 sm:h-14 sm:w-14 rounded-full hover:ring">
                 </span>
                 <p class="text-xl px-3 font-bold">กำลังจอง</p>
                 <span
-                    class="shadow-md bg-gray-500 hover:bg-gray-600 cursor-not-allowed h-10 w-10 sm:h-14 sm:w-14 rounded-full hover:ring">
+                    class="shadow-md bg-gray-500 hover:bg-gray-600 cursor-not-allowed h-8 w-8 sm:h-14 sm:w-14 rounded-full hover:ring">
                 </span>
                 <p class="text-xl px-3 font-bold">
                     จองแล้ว
