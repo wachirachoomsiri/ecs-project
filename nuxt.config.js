@@ -92,7 +92,7 @@ export default {
     // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
     config: {
       // Default: 'media'
-      preload: 'swap',
+      preload: 'js-lazy',
     },
   },
 
