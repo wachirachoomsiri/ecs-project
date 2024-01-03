@@ -24,7 +24,7 @@
     "qr-scanner": "^1.4.2",
     "thai-address-database": "^0.0.29",
     "vue": "^2.7.10",
-    "vue-server-renderer": "^2.7.10",
+    "vue-server-renderer": "^2.7.16",
     "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
